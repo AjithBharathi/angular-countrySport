@@ -1,0 +1,7 @@
+<h2>Country Details</h2>
+<p>code: {{country.code}}</p>
+<p>name: {{country.name}}</p>
+<p>sport: {{country.sport}}</p>
+<p>available: {{country.available | availablePipe:country.available}}</p>
+
+<button type="button" [routerLink]="['/country']">Back</button>

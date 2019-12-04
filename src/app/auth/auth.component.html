@@ -1,0 +1,12 @@
+<form #authUser="ngForm" (ngSubmit)="onauthUser(authUser)">
+    <input type="text" placeholder="email" name="email" ngModel><br>
+    <input type="text" placeholder="password" name="password" ngModel><br>
+    <button type="submit">{{isLoginMode ? 'Login' : 'Sign Up'}}</button>
+    <button type="button" (click)="changeLoginMode()">Switch to {{isLoginMode ? 'Sign Up' : 'Login'}}</button>
+</form>
+
+
+
+<div>
+    <p auth-directive>{{name | authPipe}}</p>
+</div>

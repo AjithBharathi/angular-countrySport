@@ -1,0 +1,36 @@
+<form #addCountry="ngForm" (ngSubmit)="onAddCountry(addCountry)">
+    <input type="number" placeholder="country code" name="code" ngModel><br>
+    <input type="text" placeholder="country name" name="name" ngModel><br>
+    <input type="text" placeholder="sport" name="sport" ngModel><br>
+    <input type="checkbox" value="available" name="available" [ngModel]="availableCountry">
+    <label for="">available</label><br>
+    <input type="submit" value="add">
+</form>
+
+<div>
+    <h2>Country List</h2>
+    <table *ngIf="dataFound">
+        <thead>
+            <th>code</th>
+            <th>name</th>
+            <th>sport</th>
+            <th>available</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries; let i=index" [routerLink]="['view-country', country.id]">
+                <td>{{country.code}}</td>
+                <td>{{country.name | titlecase}}</td>
+                <td>{{country.sport | titlecase}}</td>
+                <td [available-directive]="country.available">{{country.available | availablePipe:country.available}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!dataFound">No Data Found</p>
+</div>
+
+
+
+<div>
+    <p *ngFor="let item of items">{{item.name}} - {{item.age}}</p>
+</div>
